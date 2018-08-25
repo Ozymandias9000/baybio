@@ -1,7 +1,13 @@
 import React, { Component } from "react";
+import p5Background from "./p5Background";
+import P5Wrapper from "react-p5-wrapper";
 
 export default class Splash extends Component {
   render() {
-    return <div>Hello</div>;
+    return (
+      <div>
+        <P5Wrapper sketch={p5Background} />
+      </div>
+    );
   }
 }

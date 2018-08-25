@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@reach/router": "^1.1.1",
+    "p5": "^0.7.1",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-p5-wrapper": "^0.0.4",
     "react-scripts": "1.1.5",
     "react-transition-group": "^2.4.0"
   },
