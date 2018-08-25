@@ -5,19 +5,41 @@ export default function p5Background(p) {
   var flowfield;
   // An ArrayList of vehicles
   var vehicles = [];
+  var blue = {};
+  var pink = {};
+
+  blue.r = 0;
+  blue.g = 191;
+  blue.b = 255;
+
+  pink.r = 255;
+  pink.g = 182;
+  pink.b = 193;
 
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
     // Make a new flow field with "resolution" of 16
     flowfield = new p.FlowField(20);
-    // Make a whole bunch of vehicles with random maxspeed and maxforce values
-    for (var i = 0; i < 120; i++) {
+    p.populate(60, 0.5, 2, blue);
+    p.populate(60, 0.5, 2, pink);
+  };
+
+  p.windowResized = function() {
+    p.resizeCanvas(p.windowWidth, p.windowHeight);
+    vehicles = [];
+    p.populate(60, 0.5, 2, blue);
+    p.populate(60, 0.5, 2, pink);
+  };
+
+  p.populate = function(howMany, minSpeed, maxSpeed, color) {
+    for (var i = 0; i < howMany; i++) {
       vehicles.push(
         new p.Vehicle(
           p.random(p.windowWidth),
           p.random(p.windowHeight),
-          p.random(2, 5),
-          p.random(0.1, 0.5)
+          p.random(minSpeed, maxSpeed),
+          p.random(0.1, 0.5),
+          color
         )
       );
     }
@@ -101,21 +123,6 @@ export default function p5Background(p) {
     };
   };
 
-  p.windowResized = function() {
-    p.resizeCanvas(p.windowWidth, p.windowHeight);
-    vehicles = [];
-    for (var i = 0; i < 120; i++) {
-      vehicles.push(
-        new p.Vehicle(
-          p.random(p.windowWidth),
-          p.random(p.windowHeight),
-          p.random(2, 5),
-          p.random(0.1, 0.5)
-        )
-      );
-    }
-  };
-
   p.draw = function() {
     p.background(250);
     // Display the flowfield in "debug" mode
@@ -138,7 +145,7 @@ export default function p5Background(p) {
     flowfield.init();
   };
 
-  p.Vehicle = function(x, y, ms, mf) {
+  p.Vehicle = function(x, y, ms, mf, color) {
     this.position = p.createVector(x, y);
     this.acceleration = p.createVector(0, 0);
     this.velocity = p.createVector(0, 0);
@@ -192,7 +199,7 @@ export default function p5Background(p) {
     };
 
     this.display = function() {
-      p.fill(127, 23, 255);
+      p.fill(color.r, color.g, color.b);
       p.noStroke();
       // stroke(200);
       // strokeWeight(1);
