@@ -1,9 +1,14 @@
 import React, { Component } from "react";
-import "./App.css";
+import "./static/css/App.css";
+import Splash from "./components/Splash";
 
 class App extends Component {
   render() {
-    return <div />;
+    return (
+      <main>
+        <Splash />
+      </main>
+    );
   }
 }
 
