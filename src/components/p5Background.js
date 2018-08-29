@@ -8,13 +8,13 @@ export default function p5Background(p) {
   var blue = {};
   var pink = {};
 
-  blue.r = 0;
-  blue.g = 191;
-  blue.b = 255;
+  blue.r = 100;
+  blue.g = 149;
+  blue.b = 237;
 
   pink.r = 255;
-  pink.g = 182;
-  pink.b = 193;
+  pink.g = 192;
+  pink.b = 203;
 
   p.setup = function() {
     p.createCanvas(p.windowWidth, p.windowHeight);
