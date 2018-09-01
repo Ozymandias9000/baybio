@@ -50,10 +50,15 @@
 /* Classes for splash buttons */
 
 .splash-link--container
+  padding 50px
   grid-row 3 / span 1
-  display flex
-  justify-content space-around
+  display grid
+  grid 1fr 1fr / 1fr
+  grid-gap 50px
+  justify-items center
+  align-items center
   .splash-link
+    grid-column 1 /-1
     line-height 120px
     width 120px
     height 120px
@@ -84,6 +89,11 @@
     opacity 1
 
 /* ------------- Non-mobile --------------- */
-@media only screen and (min-width:500px)
+@media only screen and (min-width:600px)
   .splash-banner-text > input
-    width 40vw
+    width 50vw
+
+  .splash-link--container
+    display flex
+    justify-content space-between
+    align-items center
