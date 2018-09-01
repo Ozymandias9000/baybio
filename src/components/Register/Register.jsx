@@ -1,13 +1,12 @@
 import React, { Component } from "react";
-import p5Background from "./p5Background";
-import P5Wrapper from "react-p5-wrapper";
 
-export default class Splash extends Component {
+export default class Register extends Component {
   state = {
     active: false
   };
 
   componentDidMount() {
+
     const h1Text = "Hello, baby";
     const ellipses = "...";
     const h3Text = "What's your name?";
@@ -21,7 +20,7 @@ export default class Splash extends Component {
     const textAppear = function(
       text,
       domTarget,
-      timeBetween = 150,
+      timeBetween = 100,
       initialDelay = 0
     ) {
       let arr = text.split("");
@@ -35,7 +34,7 @@ export default class Splash extends Component {
       }
     };
 
-    textAppear(h1Text, h1Target, 150, 500);
+    textAppear(h1Text, h1Target, 100, 500);
     textAppear(ellipses, ellipsesTarget, 200, 2500);
     textAppear(h3Text, h3Target, 50, 3500);
 
@@ -46,17 +45,14 @@ export default class Splash extends Component {
 
   render() {
     return (
-      <div>
-        <P5Wrapper sketch={p5Background} />
-        <main className="splash-main-container">
-          <div className="splash-banner-text">
-            <h1 className="splash-banner-text--h1" />
-            <h3 className="splash-banner-text--ellipses" />
-            <h3 className="splash-banner-text--h3" />
-            {this.state.active && <NameInput />}
-          </div>
-        </main>
-      </div>
+      <main className="splash-main-container">
+        <div className="splash-banner-text">
+          <h1 className="splash-banner-text--h1" />
+          <h3 className="splash-banner-text--ellipses" />
+          <h3 className="splash-banner-text--h3" />
+          {this.state.active && <NameInput />}
+        </div>
+      </main>
     );
   }
 }

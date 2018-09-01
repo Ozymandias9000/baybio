@@ -1,2 +1,5 @@
-@import url("Splash.css");
+@import url("BackgroundLayer.css");
 @import url("index.css");
+@import url("Register.css");
+@import url("SignIn.css");
+@import url("Main.css");
