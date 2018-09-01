@@ -6,7 +6,6 @@ export default class Register extends Component {
   };
 
   componentDidMount() {
-
     const h1Text = "Hello, baby";
     const ellipses = "...";
     const h3Text = "What's your name?";
@@ -45,7 +44,7 @@ export default class Register extends Component {
 
   render() {
     return (
-      <main className="splash-main-container">
+      <main className="flex-container--center">
         <div className="splash-banner-text">
           <h1 className="splash-banner-text--h1" />
           <h3 className="splash-banner-text--ellipses" />

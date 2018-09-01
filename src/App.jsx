@@ -7,16 +7,30 @@ import Main from "./components/Main/Main";
 
 class App extends Component {
   state = {
-    user: "",
-    userId: 0
+    input: "",
+    imageUrl: "",
+    isSignedIn: false,
+    user: {
+      email: "",
+      id: "",
+      name: "",
+      babyName: "",
+      posts: {},
+      joined: ""
+    }
+  };
+
+  onInputChange = e => {
+    this.setState({ input: e.target.value });
   };
 
   render() {
+    const { isSignedIn } = this.state;
     return (
       <div>
         <BackgroundLayer />
         <Router>
-          <Main path="/" />
+          <Main path="/" isSignedIn={isSignedIn} />
           <Register path="/register" />
         </Router>
       </div>
