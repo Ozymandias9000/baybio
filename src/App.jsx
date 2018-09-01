@@ -3,6 +3,7 @@ import { Router } from "@reach/router";
 import "./static/css/App.css";
 import BackgroundLayer from "./components/Background/BackgroundLayer";
 import Register from "./components/Register/Register";
+import SignIn from "./components/SignIn/SignIn";
 import Main from "./components/Main/Main";
 
 class App extends Component {
@@ -32,6 +33,7 @@ class App extends Component {
         <Router>
           <Main path="/" isSignedIn={isSignedIn} />
           <Register path="/register" />
+          <SignIn path="/signin" />
         </Router>
       </div>
     );
