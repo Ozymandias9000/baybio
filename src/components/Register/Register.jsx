@@ -1,59 +1,20 @@
 import React, { Component } from "react";
+import textAppear from "../CustomFuncs/textAppear";
+import Reg1 from "./RegisterSteps/Reg1";
 
 export default class Register extends Component {
   state = {
     active: false
   };
 
-  componentDidMount() {
-    const h1Text = "Hello, baby";
-    const ellipses = "...";
-    const h3Text = "What's your name?";
-
-    const h1Target = document.querySelector(".splash-banner-text--h1");
-    const ellipsesTarget = document.querySelector(
-      ".splash-banner-text--ellipses"
-    );
-    const h3Target = document.querySelector(".splash-banner-text--h3");
-
-    const textAppear = function(
-      text,
-      domTarget,
-      timeBetween = 100,
-      initialDelay = 0
-    ) {
-      let arr = text.split("");
-      for (let i = 0; i < arr.length; i++) {
-        setTimeout(function() {
-          let span = document.createElement("span");
-          span.innerText += arr[i];
-          span.classList.add("textAppear");
-          domTarget.appendChild(span);
-        }, initialDelay + i * timeBetween);
-      }
-    };
-
-    textAppear(h1Text, h1Target, 100, 500);
-    textAppear(ellipses, ellipsesTarget, 200, 2500);
-    textAppear(h3Text, h3Target, 50, 3500);
-
-    setTimeout(() => {
-      this.setState({ active: !this.state.active });
-    }, 4500);
-  }
+  /* TODO:
+    - Implement multi-component registration flow using Amazon Cognito (https://hackernoon.com/react-authentication-in-depth-4deebda9aa45) & (https://medium.com/@l_e/writing-a-wizard-in-react-8dafbce6db07)
+    - Add TransitionGroup page transitions
+    - Use Ty McGinnis tut & AWS AppSync with GraphQL to
+    serverlessly save user & post data (https://tylermcginnis.com/building-serverless-react-graphql-apps-with-aws-appsync/)
+  */
 
   render() {
-    return (
-      <main className="flex-container--center">
-        <div className="splash-banner-text">
-          <h1 className="splash-banner-text--h1" />
-          <h3 className="splash-banner-text--ellipses" />
-          <h3 className="splash-banner-text--h3" />
-          {this.state.active && <NameInput />}
-        </div>
-      </main>
-    );
+    return <Reg1 textAppear={textAppear} />;
   }
 }
-
-const NameInput = () => <input type="text" id="name-input" />;
