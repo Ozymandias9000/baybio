@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Router, Link } from "@reach/router";
+import { Router } from "@reach/router";
 import "./static/css/App.css";
 import BackgroundLayer from "./components/Background/BackgroundLayer";
 import Register from "./components/Register/Register";

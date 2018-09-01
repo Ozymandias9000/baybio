@@ -1,15 +1,10 @@
 import React, { Component, Fragment } from "react";
 import UserMain from "../UserMain/UserMain";
+import MainSplash from "./MainSplash/MainSplash";
 
 export default class Main extends Component {
-  renderSplash = () => {
-    return <main className="flex-container--center">Heeeeey, sign in!</main>;
-  };
-
   render() {
     const { isSignedIn } = this.props;
-    return (
-      <Fragment> {isSignedIn ? <UserMain /> : this.renderSplash()}</Fragment>
-    );
+    return <Fragment> {isSignedIn ? <UserMain /> : <MainSplash />}</Fragment>;
   }
 }
