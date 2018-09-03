@@ -26,7 +26,10 @@ const NoContent = props => {
       <h3 className="splash-banner-text--h3">
         Nothing here. Make your first post?
       </h3>
-      <Link to={`${user}/newpost`} className="round-button round-button--post">
+      <Link
+        to={`u/${user}/newpost`}
+        className="round-button round-button--post"
+      >
         Please!
       </Link>
     </Fragment>

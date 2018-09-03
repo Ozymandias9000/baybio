@@ -3,10 +3,12 @@ import { Router } from "@reach/router";
 import "./static/css/App.css";
 import BackgroundLayer from "./components/Background/BackgroundLayer";
 import Register from "./components/Register/Register";
-import SignIn from "./components/SignIn/SignIn";
+// import SignIn from "./components/SignIn/SignIn";
 import Main from "./components/Main/Main";
 import NewPost from "./components/UserMain/NewPost/NewPost";
 import NotFound from "./components/NotFound/NotFound";
+
+import "normalize.css";
 
 class App extends Component {
   state = {
@@ -15,7 +17,7 @@ class App extends Component {
     isSignedIn: true,
     user: {
       email: "",
-      id: "",
+      userId: "123",
       name: "",
       babyName: "",
       posts: {},
@@ -29,15 +31,16 @@ class App extends Component {
 
   render() {
     const { isSignedIn } = this.state;
+
     return (
       <div>
         <BackgroundLayer />
         <Router>
           <NotFound default />
           <Main path="/" isSignedIn={isSignedIn} />
-          <NewPost path="/:user/newpost" />
+          <NewPost path="/u/:userId/newpost" />
           <Register path="/register" />
-          <SignIn path="/signin" />
+          {/* <SignIn path="/signin" /> */}
         </Router>
       </div>
     );

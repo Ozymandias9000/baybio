@@ -31,9 +31,9 @@ export default class Reg1 extends Component {
     return (
       <main className="flex-container--center">
         <div className="splash-banner-text">
-          <h1 className="splash-banner-text--h1" />
-          <h3 className="splash-banner-text--ellipses" />
-          <h3 className="splash-banner-text--h3" />
+          <h1 className="splash-banner-text--h1"> </h1>
+          <h3 className="splash-banner-text--ellipses"> </h3>
+          <h3 className="splash-banner-text--h3"> </h3>
           {this.state.active && <SingleLineInput label={"babyName"} />}
         </div>
       </main>

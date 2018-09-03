@@ -48,22 +48,24 @@
   font-size 2em
   font-family inherit
   outline none
-  & :focus
+  &:focus
     outline none
 
 /* Classes for buttons */
 
 .round-button
+  letter-spacing 3px
+  border 0
   line-height 120px
   width 120px
   height 120px
   border-radius 50%
   text-decoration none
-  color var(--white)
   transition all .2s
   box-shadow: 1px 1px 3px rgba(0,0,0,.2)
-  &:hover
-    transform: scale(1.1)
+  &:hover, &:focus
+    transform scale(1.05)
+    outline none
 
 /* Classes for letter transitions */
 

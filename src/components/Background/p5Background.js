@@ -64,8 +64,10 @@ export default function p5Background(p) {
       // Reseed noise so we get a new flow field every time
       // Need to get noise working
       p.noiseSeed(Math.floor(p.random(10000)));
+      // eslint-disable-next-line
       var xoff = 0;
       for (var i = 0; i < this.cols; i++) {
+        // eslint-disable-next-line
         var yoff = 0;
         for (var j = 0; j < this.rows; j++) {
           // Uncomment for rain-like effect
@@ -141,9 +143,9 @@ export default function p5Background(p) {
   };
 
   // Make a new flowfield
-  p.mousePressed = function() {
-    flowfield.init();
-  };
+  // p.mousePressed = function() {
+  //   flowfield.init();
+  // };
 
   p.Vehicle = function(x, y, ms, mf, color) {
     this.position = p.createVector(x, y);
