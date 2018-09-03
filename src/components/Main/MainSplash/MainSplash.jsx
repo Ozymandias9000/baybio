@@ -8,11 +8,11 @@ export default class MainSplash extends Component {
         <div className="splash-banner-text">
           <h1 className="splash-banner-text--h1">Baybio</h1>
           <h3 className="splash-banner-text--h3">Your baby's story</h3>
-          <div className="splash-link--container">
-            <Link to="register" className="splash-link">
+          <div className="splash-button--container">
+            <Link to="register" className="round-button round-button--splash">
               Register
             </Link>
-            <Link to="signin" className="splash-link">
+            <Link to="signin" className="round-button round-button--splash">
               Sign In
             </Link>
           </div>

@@ -1,0 +1,1 @@
+.grid-container--user-main{display:grid;grid:1fr 1fr/1fr 1fr;grid-gap:5px;width:95vw;height:95vh;opacity:.8;background:#fafafa}.photo-card{border:2px solid var(--blue)}.round-button--post{position:relative;top:75px;padding:10px;background:var(--red)}
