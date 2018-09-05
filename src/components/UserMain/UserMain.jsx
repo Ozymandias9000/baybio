@@ -5,21 +5,21 @@ import UserPosts from "./UserPosts/UserPosts";
 export default class UserMain extends Component {
   state = {
     isContent: false,
-    user: "test"
+    userId: 1234
   };
 
   render() {
     const { isContent } = this.state;
     return (
       <main className="flex-container--center">
-        {isContent ? <UserPosts /> : <NoContent user={this.state.user} />}
+        {isContent ? <UserPosts /> : <NoContent userId={this.state.userId} />}
       </main>
     );
   }
 }
 
 const NoContent = props => {
-  const { user } = props;
+  const { userId } = props;
 
   return (
     <Fragment>
@@ -27,7 +27,7 @@ const NoContent = props => {
         Nothing here. Make your first post?
       </h3>
       <Link
-        to={`u/${user}/newpost`}
+        to={`u/${userId}/newpost`}
         className="round-button round-button--post"
       >
         Please!

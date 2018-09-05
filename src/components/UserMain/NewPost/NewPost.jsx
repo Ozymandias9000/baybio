@@ -6,31 +6,28 @@ export default class NewPost extends Component {
   state = {
     imgLink: "",
     description: "",
-    userId: "",
     created: 0
   };
 
-  componentDidMount() {
-    const userId = this.props.userId;
-    this.setState({ userId });
-  }
-
   handleSubmit = e => {
     e.preventDefault();
+    const userId = this.props.userId;
     const data = new FormData(e.target);
     const imgLink = data.get("imgLink");
     const description = data.get("description");
     const created = moment.now();
+    const createdPretty = moment(created).format();
     this.setState({ imgLink, description, created }, () => {
       // TODO Trim & validate input
+      // Implement userId from firebase.auth
 
       firebase
         .database()
-        .ref(this.state.userId)
+        .ref(`users/${userId}/${createdPretty}`)
+
         .set({
           imgLink,
-          description,
-          created
+          description
         });
     });
   };
