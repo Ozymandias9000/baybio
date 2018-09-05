@@ -9,12 +9,14 @@ export default class NewPost extends Component {
     created: 0
   };
 
+  formatData = d => d.trim();
+
   handleSubmit = e => {
     e.preventDefault();
     const userId = this.props.userId;
     const data = new FormData(e.target);
-    const imgLink = data.get("imgLink");
-    const description = data.get("description");
+    const imgLink = this.formatData(data.get("imgLink"));
+    const description = this.formatData(data.get("description"));
     const created = moment.now();
     const createdPretty = moment(created).format();
     this.setState({ imgLink, description, created }, () => {
@@ -44,7 +46,11 @@ export default class NewPost extends Component {
           <label htmlFor="imgLink">Image Link</label>
           <input type="text" name="imgLink" id="imgLink" />
           <label htmlFor="description">Description</label>
-          <textarea name="description" id="description" />
+          <textarea
+            name="description"
+            id="description"
+            placeholder="Optional"
+          />
           <input
             type="submit"
             value="Post"

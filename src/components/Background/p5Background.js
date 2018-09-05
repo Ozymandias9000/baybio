@@ -136,11 +136,11 @@ export default function p5Background(p) {
     }
   };
 
-  p.keyPressed = function() {
-    if (p.key === " ") {
-      debug = !debug;
-    }
-  };
+  // p.keyPressed = function() {
+  //   if (p.key === " ") {
+  //     debug = !debug;
+  //   }
+  // };
 
   // Make a new flowfield
   // p.mousePressed = function() {

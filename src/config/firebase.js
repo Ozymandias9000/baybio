@@ -5,4 +5,4 @@ import { FirebaseConfig } from "./keys.js";
 
 firebase.initializeApp(FirebaseConfig);
 
-export { firebase };
+export { firebase, database };
