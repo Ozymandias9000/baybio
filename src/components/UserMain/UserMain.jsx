@@ -27,7 +27,7 @@ const NoContent = props => {
         Nothing here. Make your first post?
       </h3>
       <Link
-        to={`u/${userId}/newpost`}
+        to={`/u/:userId/newpost`}
         className="round-button round-button--post"
       >
         Please!
