@@ -44,7 +44,7 @@ export default class NewPost extends Component {
           onSubmit={this.handleSubmit}
         >
           <label htmlFor="imgLink">Image Link</label>
-          <input type="text" name="imgLink" id="imgLink" />
+          <input type="text" name="imgLink" id="imgLink" required />
           <label htmlFor="description">Description</label>
           <textarea
             name="description"
