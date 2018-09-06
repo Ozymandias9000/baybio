@@ -5,13 +5,14 @@ import { navigate } from "@reach/router";
 export default class SignIn extends Component {
   formatData = d => d.trim();
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     e.preventDefault();
+
     const data = new FormData(e.target);
     const email = this.formatData(data.get("email"));
     const password = this.formatData(data.get("password"));
 
-    firebase
+    await firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch(function(error) {
@@ -20,9 +21,14 @@ export default class SignIn extends Component {
         var errorMessage = error.message;
         console.log(errorCode, errorMessage);
       });
+
     const user = firebase.auth().currentUser;
     console.log(user);
-    navigate(`/u/${user.uid}`);
+    if (user) {
+      navigate(`/u/${user.uid}`);
+    } else {
+      this.refs.error.textContent = "Please enter a valid email and password!";
+    }
   };
 
   render() {
@@ -34,6 +40,10 @@ export default class SignIn extends Component {
           name="signin-form"
           onSubmit={this.handleSubmit}
         >
+          <span
+            ref="error"
+            style={{ color: "red", position: "relative", bottom: 40 + "px" }}
+          />
           <label htmlFor="email">Email</label>
           <input type="email" name="email" id="email" required />
           <label htmlFor="password">Password</label>

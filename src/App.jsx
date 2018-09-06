@@ -9,37 +9,38 @@ import NotFound from "./components/NotFound/NotFound";
 import UserMain from "./components/UserMain/UserMain";
 import MainSplash from "./components/Main/MainSplash/MainSplash";
 
-import { firebase } from "./config/firebase";
+// import { firebase } from "./config/firebase";
 import "normalize.css";
 
 class App extends Component {
-  state = {
-    input: "",
-    imageUrl: "",
-    isSignedIn: null,
-    user: {
-      email: "",
-      userId: "123",
-      name: "",
-      babyName: "",
-      posts: {},
-      joined: ""
-    }
-  };
+  // state = {
+  //   input: "",
+  //   imageUrl: "",
+  //   isSignedIn: true,
+  //   user: {
+  //     email: "",
+  //     userId: "123",
+  //     name: "",
+  //     babyName: "",
+  //     posts: {},
+  //     joined: ""
+  //   }
+  // };
 
   componentDidMount() {
-    let isSignedIn;
-    firebase.auth().currentUser ? (isSignedIn = true) : (isSignedIn = false);
-    console.log(firebase.auth().currentUser, this.state);
-    this.setState({ isSignedIn });
+    // let isSignedIn;
+    // firebase.auth().currentUser ? (isSignedIn = true) : (isSignedIn = false);
+    // console.log(firebase.auth().currentUser, this.state);
+    // this.setState({ isSignedIn });
+    // Still need to make this update issignedin
+    // Also userId
   }
 
   render() {
-    const { isSignedIn } = this.state;
+    // const { isSignedIn } = this.state;
     return (
       <div>
         <BackgroundLayer />
-        {isSignedIn ? <UserMain /> : <MainSplash />}
         <Router>
           <NotFound default />
           <MainSplash path="/" />
