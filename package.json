@@ -12,8 +12,7 @@
     "react-dom": "^16.4.2",
     "react-p5-wrapper": "^0.0.4",
     "react-scripts": "1.1.5",
-    "react-transition-group": "^2.4.0",
-    "uuid": "^3.3.2"
+    "react-transition-group": "^2.4.0"
   },
   "scripts": {
     "build-css": "stylus -c src/static/stylus/ --out src/static/css",

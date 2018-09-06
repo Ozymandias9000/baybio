@@ -2,22 +2,26 @@ import React, { Component, Fragment } from "react";
 import { Link } from "@reach/router";
 import UserPosts from "./UserPosts/UserPosts";
 import { firebase } from "../../config/firebase";
-import { navigate } from "@reach/router";
+import { Redirect } from "@reach/router";
 
 export default class UserMain extends Component {
   state = {
     isContent: false,
     isUser: false,
-    userId: null
+    userId: ""
   };
 
   checkUser = () => {
-    if (firebase.auth().currentUser === null) {
-      this.setState({ isUser: false, isContent: false, userId: null });
+    if (
+      firebase.auth().currentUser === null ||
+      firebase.auth().currentUser.uid !== this.props.userId
+    ) {
+      this.setState({ isUser: false, isContent: false, userId: "" });
     } else {
-      const { uid } = firebase.auth().currentUser;
-      this.setState({ isUser: true, isContent: true, userId: uid });
+      const { userId } = this.props;
+      this.setState({ isUser: true, isContent: false, userId });
     }
+    console.log(this.props, firebase.auth().currentUser);
   };
 
   componentWillMount() {
@@ -28,8 +32,7 @@ export default class UserMain extends Component {
     const { isContent, isUser, userId } = this.state;
 
     if (!isUser) {
-      navigate("/signin");
-      return null;
+      return <Redirect to="signin" noThrow />;
     } else {
       return (
         <main className="flex-container--center">
@@ -40,8 +43,8 @@ export default class UserMain extends Component {
   }
 }
 
-const NoContent = () => {
-  const { userId } = this.state;
+const NoContent = props => {
+  const { userId } = props;
 
   return (
     <Fragment>

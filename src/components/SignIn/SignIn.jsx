@@ -23,7 +23,7 @@ export default class SignIn extends Component {
       });
 
     const user = firebase.auth().currentUser;
-    console.log(user);
+
     if (user) {
       navigate(`/u/${user.uid}`);
     } else {
