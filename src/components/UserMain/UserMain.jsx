@@ -5,19 +5,20 @@ import { firebase } from "../../config/firebase";
 
 export default class UserMain extends Component {
   state = {
-    isContent: false,
+    isContent: true,
     isUser: false,
     userId: ""
   };
 
   checkUser = () => {
+    const { userId } = this.props;
+
     if (
       firebase.auth().currentUser === null ||
-      firebase.auth().currentUser.uid !== this.props.userId
+      firebase.auth().currentUser.uid !== userId
     ) {
-      this.setState({ isUser: false, userId: "" });
+      this.setState({ isUser: false });
     } else {
-      const { userId } = this.props;
       this.setState({ isUser: true, userId });
     }
     console.log(this.props, firebase.auth().currentUser);
