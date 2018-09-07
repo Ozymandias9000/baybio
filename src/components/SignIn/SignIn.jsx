@@ -40,10 +40,7 @@ export default class SignIn extends Component {
           name="signin-form"
           onSubmit={this.handleSubmit}
         >
-          <span
-            ref="error"
-            style={{ color: "red", position: "relative", bottom: 40 + "px" }}
-          />
+          <span ref="error" className="error-msg" />
           <label htmlFor="email">Email</label>
           <input type="email" name="email" id="email" required />
           <label htmlFor="password">Password</label>

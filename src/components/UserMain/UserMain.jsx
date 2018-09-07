@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from "react";
-import { Link } from "@reach/router";
+import { Link, Redirect } from "@reach/router";
 import UserPosts from "./UserPosts/UserPosts";
 import { firebase } from "../../config/firebase";
-import { Redirect } from "@reach/router";
 
 export default class UserMain extends Component {
   state = {
@@ -16,10 +15,10 @@ export default class UserMain extends Component {
       firebase.auth().currentUser === null ||
       firebase.auth().currentUser.uid !== this.props.userId
     ) {
-      this.setState({ isUser: false, isContent: false, userId: "" });
+      this.setState({ isUser: false, userId: "" });
     } else {
       const { userId } = this.props;
-      this.setState({ isUser: true, isContent: false, userId });
+      this.setState({ isUser: true, userId });
     }
     console.log(this.props, firebase.auth().currentUser);
   };
