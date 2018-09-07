@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import moment from "moment";
+import moment from "moment-mini";
 import { firebase } from "../../../config/firebase.js";
 
 export default class NewPost extends Component {
