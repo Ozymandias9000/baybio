@@ -6,6 +6,8 @@
     "@reach/router": "^1.1.1",
     "firebase": "^5.4.2",
     "moment-mini": "^2.22.1",
+    "nib": "^1.1.2",
+    "normalize-stylus": "^1.0.1",
     "particles.js": "^2.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",

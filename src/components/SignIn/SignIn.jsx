@@ -48,7 +48,7 @@ export default class SignIn extends Component {
           <input
             type="submit"
             value="Sign In"
-            className="round-button round-button--submit"
+            className="round-button round-button--sign-in"
           />
         </form>
       </div>

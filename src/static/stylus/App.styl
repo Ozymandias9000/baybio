@@ -1,12 +1,5 @@
-@import url('BackgroundLayer.css')
-@import url('index.css')
-@import url('Register.css')
-@import url('SignIn.css')
-@import url('Main.css')
-@import url('UserMain.css')
-@import url('UserPosts.css')
-@import url('MainSplash.css')
-
+@import 'styles/*'
+@import 'normalize-stylus'
 
 /* Center container */
 .flex-container--center
@@ -55,9 +48,13 @@
 /* Classes for buttons */
 
 .round-button
+  display flex
+  justify-content center
+  align-items center
+  padding 15px
+  font-size 1rem
   letter-spacing 3px
   border 0
-  line-height 120px
   width 120px
   height 120px
   border-radius 50%
