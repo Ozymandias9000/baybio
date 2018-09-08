@@ -1,13 +1,51 @@
 import React, { Component } from "react";
-import p5Background from "./p5Background";
-import P5Wrapper from "react-p5-wrapper";
+import Particles from "react-particles-js";
 
 export default class BackgroundLayer extends Component {
   render() {
     return (
-      <div>
-        <P5Wrapper sketch={p5Background} />
-      </div>
+      <Particles
+        params={{
+          particles: {
+            number: {
+              value: 80,
+              density: {
+                enable: true,
+                value_area: 800
+              }
+            },
+            color: {
+              value: ["#6495ED", "#FFC0CB"]
+            },
+            opacity: {
+              value: 1,
+              random: false,
+              anim: {
+                enable: false
+              }
+            },
+            size: {
+              value: 5,
+              random: true,
+              anim: {
+                enable: false
+              }
+            },
+            move: {
+              speed: 1.5,
+              random: true,
+              direction: "bottom",
+              out_mode: "out"
+            },
+            line_linked: {
+              enable: false
+            }
+          }
+        }}
+        className={"background-layer"}
+        width={"100vw"}
+        height={"100vh"}
+      />
     );
   }
 }

@@ -9,9 +9,6 @@ import NotFound from "./components/NotFound/NotFound";
 import UserMain from "./components/UserMain/UserMain";
 import MainSplash from "./components/Main/MainSplash/MainSplash";
 
-// import { firebase } from "./config/firebase";
-import "normalize.css";
-
 class App extends Component {
   // state = {
   //   input: "",
