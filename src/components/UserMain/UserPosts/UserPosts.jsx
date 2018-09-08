@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { firebase } from "../../../config/firebase";
+import "filepond/dist/filepond.min.css";
 
 export default class UserPosts extends Component {
   state = {
@@ -8,7 +9,7 @@ export default class UserPosts extends Component {
 
   fetchPosts = () => {
     const userId = firebase.auth().currentUser.uid;
-    // var userId = 1234;
+
     firebase
       .database()
       .ref("/users/" + userId)

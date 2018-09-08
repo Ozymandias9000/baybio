@@ -1,0 +1,36 @@
+/* New Post */
+.filepond--wrapper
+  padding 10px
+  width 75vw
+  opacity .9
+
+#post-form
+  height 80vh
+  top 30px
+  padding 20px
+  position relative
+  justify-content space-between
+  align-items center
+  text-align center
+  & textarea
+    height 20vh
+  & input[type='text'],
+  & textarea
+    width 75vw
+    padding 10px
+    color var(--black)
+    background #ccc
+    border none
+    border-bottom 1px solid black
+    font-family inherit
+    outline none
+    opacity .6
+    transition all .2s
+    &:focus
+      outline none
+      opacity .9
+
+@media only screen and (max-width: 600px)
+  #post-form
+    & textarea
+      min-height 65px

@@ -11,6 +11,7 @@
     "particles.js": "^2.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-filepond": "^3.0.1",
     "react-p5-wrapper": "^0.0.4",
     "react-particles-js": "^2.3.0",
     "react-scripts": "1.1.5",
