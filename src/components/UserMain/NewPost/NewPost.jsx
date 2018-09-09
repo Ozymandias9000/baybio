@@ -3,9 +3,10 @@ import moment from "moment-mini";
 import { firebase } from "../../../config/firebase.js";
 import { navigate, Redirect } from "@reach/router";
 import checkUser from "../../CustomFuncs/checkUser";
-
-const cloudName = "dyqugalkq";
-const unsignedUploadPreset = "b5as104f";
+import {
+  cloudName,
+  unsignedUploadPreset
+} from "../../../config/cloudinaryConfig";
 
 export default class NewPost extends Component {
   state = {
@@ -16,6 +17,7 @@ export default class NewPost extends Component {
   };
 
   componentWillMount() {
+    console.log(cloudName);
     checkUser(firebase.auth().currentUser, this);
   }
 
@@ -24,7 +26,6 @@ export default class NewPost extends Component {
     window.cloudinary.openUploadWidget(
       { cloud_name: `${cloudName}`, upload_preset: `${unsignedUploadPreset}` },
       (error, result) => {
-        console.log(error, result);
         this.setState({
           cloudinaryUrl: result[0].url,
           thumbnail_url: result[0].thumbnail_url
@@ -58,7 +59,6 @@ export default class NewPost extends Component {
           });
         navigate(`/u/${userId}`);
       } catch (err) {
-        console.log(err);
         this.refs.error.textContent = "Hmmmm, that didn't work. Try again?";
       }
     });

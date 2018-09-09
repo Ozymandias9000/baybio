@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { firebase } from "../../../config/firebase";
-import "filepond/dist/filepond.min.css";
 
 export default class UserPosts extends Component {
   state = {
@@ -38,7 +37,7 @@ export default class UserPosts extends Component {
       <div className="grid-container--user-main">
         {posts.length > 0 &&
           posts.map(post => (
-            <div className="photo-card">
+            <div className="photo-card" key={post.imgLink}>
               <img src={post.imgLink} alt={post.description} />
               {post.description}
             </div>

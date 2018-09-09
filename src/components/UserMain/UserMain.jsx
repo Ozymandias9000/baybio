@@ -36,9 +36,7 @@ export default class UserMain extends Component {
 const NoContent = () => {
   return (
     <Fragment>
-      <h3 className="splash-banner-text--h3">
-        Nothing here. Make your first post?
-      </h3>
+      <h3 className="splash-banner-text--h3">Nothing here!</h3>
     </Fragment>
   );
 };
