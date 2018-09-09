@@ -1,42 +1,30 @@
-import React, { Component, Fragment } from "react";
-import { Link, Redirect } from "@reach/router";
+import React, { Component } from "react";
 import UserPosts from "./UserPosts/UserPosts";
 import checkUser from "../CustomFuncs/checkUser";
 import { firebase } from "../../config/firebase";
+import LinkNewPost from "./LinkNewPost";
 
 export default class UserMain extends Component {
   state = {
-    isContent: true,
     isUser: false,
     userId: ""
   };
 
   componentWillMount() {
     checkUser(firebase.auth().currentUser, this);
+    // This is fragile. Slices out id after '/u/' from path
+    const userId = window.location.pathname.slice(3);
+    this.setState({ userId });
   }
 
   render() {
-    const { isContent, isUser } = this.state;
+    const { isUser, userId } = this.state;
 
-    if (!isUser) {
-      return <Redirect to="signin" noThrow />;
-    } else {
-      return (
-        <main className="flex-container--center">
-          {isContent ? <UserPosts /> : <NoContent />}
-          <Link to={`newpost`} className="round-button round-button--post">
-            New Post
-          </Link>
-        </main>
-      );
-    }
+    return (
+      <main className="flex-container--center">
+        <UserPosts userId={userId} />
+        {isUser && <LinkNewPost />}
+      </main>
+    );
   }
 }
-
-const NoContent = () => {
-  return (
-    <Fragment>
-      <h3 className="splash-banner-text--h3">Nothing here!</h3>
-    </Fragment>
-  );
-};

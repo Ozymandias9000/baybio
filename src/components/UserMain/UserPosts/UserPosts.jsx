@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import { firebase } from "../../../config/firebase";
+import NoContent from "../NoContent";
+import Loading from "../../Loading/Loading";
 
 export default class UserPosts extends Component {
   state = {
-    posts: []
+    posts: [],
+    isContent: true,
+    loading: true
   };
 
   fetchPosts = () => {
-    const userId = firebase.auth().currentUser.uid;
-
     firebase
       .database()
-      .ref("/users/" + userId)
+      .ref("/users/" + this.props.userId)
       .once("value")
       .then(snapshot => {
-        console.log(snapshot.val());
         this.storePosts(snapshot.val());
       });
   };
@@ -24,7 +25,9 @@ export default class UserPosts extends Component {
     for (let post in p) {
       posts.push(p[post]);
     }
-    this.setState({ posts });
+    posts.length === 0
+      ? this.setState({ isContent: false, loading: false })
+      : this.setState({ isContent: true, loading: false, posts });
   };
 
   componentDidMount() {
@@ -32,8 +35,13 @@ export default class UserPosts extends Component {
   }
 
   render() {
-    const { posts } = this.state;
-    return (
+    const { posts, isContent, loading } = this.state;
+
+    if (loading) return <Loading />;
+
+    return !isContent ? (
+      <NoContent />
+    ) : (
       <div className="grid-container--user-main">
         {posts.length > 0 &&
           posts.map(post => (

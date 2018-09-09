@@ -17,7 +17,6 @@ export default class NewPost extends Component {
   };
 
   componentWillMount() {
-    console.log(cloudName);
     checkUser(firebase.auth().currentUser, this);
   }
 

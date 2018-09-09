@@ -1,0 +1,24 @@
+random(min,max)
+  return floor(math(0, 'random')*(max - min + 1) + min)
+
+randomNum = random(1, 10)
+
+.Loading
+  width 50px
+  height 50px
+  background transparent
+  display inline-block
+  if randomNum > 4
+    border 2px solid var(--blue)
+  else
+    border 2px solid var(--pink)
+  border-right-color transparent
+  border-radius 50%
+  animation rotate 1s infinite linear
+
+@keyframes rotate
+  0%
+    transform rotate(0deg)
+
+  100%
+    transform rotate(360deg)
