@@ -3,42 +3,57 @@ import moment from "moment-mini";
 import { firebase } from "../../../config/firebase.js";
 import { navigate, Redirect } from "@reach/router";
 import checkUser from "../../CustomFuncs/checkUser";
-import { FilePond } from "react-filepond";
-import "filepond/dist/filepond.min.css";
+
+const cloudName = "dyqugalkq";
+const unsignedUploadPreset = "b5as104f";
 
 export default class NewPost extends Component {
   state = {
-    imgLink: "",
     description: "",
-    created: 0,
-    isUser: false
+    isUser: false,
+    cloudinaryUrl: "",
+    thumbnail_url: ""
   };
 
   componentWillMount() {
     checkUser(firebase.auth().currentUser, this);
   }
 
+  handleCloudinary = e => {
+    e.preventDefault();
+    window.cloudinary.openUploadWidget(
+      { cloud_name: `${cloudName}`, upload_preset: `${unsignedUploadPreset}` },
+      (error, result) => {
+        console.log(error, result);
+        this.setState({
+          cloudinaryUrl: result[0].url,
+          thumbnail_url: result[0].thumbnail_url
+        });
+      }
+    );
+  };
+
   formatData = d => d.trim();
 
   handleSubmit = e => {
-    // TODO Checkout filepond
-    // https://github.com/pqina/filepond
     e.preventDefault();
     const userId = firebase.auth().currentUser.uid;
     const data = new FormData(e.target);
-    const imgLink = this.formatData(data.get("imgLink"));
+    const imgLink = this.state.cloudinaryUrl;
+    const thumbnailLink = this.state.thumbnail_url;
     const description = this.formatData(data.get("description"));
     const created = moment.now();
     const createdPretty = moment(created).format();
-    this.setState({ imgLink, description, created }, async () => {
-      // TODO Trim & validate input
 
+    this.setState({ description }, async () => {
+      // TODO Trim & validate input
       try {
         await firebase
           .database()
           .ref(`users/${userId}/${createdPretty}`)
           .set({
             imgLink,
+            thumbnailLink,
             description
           });
         navigate(`/u/${userId}`);
@@ -53,8 +68,8 @@ export default class NewPost extends Component {
     const { isUser } = this.state;
 
     if (!isUser) {
-      //   return <Redirect to="signin" noThrow />;
-      // } else {
+      return <Redirect to="signin" noThrow />;
+    } else {
       return (
         <div>
           <form
@@ -65,16 +80,14 @@ export default class NewPost extends Component {
           >
             <span ref="error" className="error-msg" />
             <label htmlFor="imgUpload">Image Upload</label>
-            <FilePond
+            <button
               name="imgUpload"
-              id="imgUpload"
-              style={{
-                height: 50 + `px`,
-                width: 75 + "vw"
-              }}
-            />
-            <label htmlFor="imgLink">Image Link</label>
-            <input type="text" name="imgLink" id="imgLink" />
+              className="round-button round-button--upload"
+              onClick={this.handleCloudinary}
+            >
+              Upload Image
+            </button>
+
             <label htmlFor="description">Description</label>
             <textarea
               name="description"
