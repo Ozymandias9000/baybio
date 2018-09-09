@@ -5,8 +5,16 @@ export default class Photo extends Component {
     const { post } = this.props;
     return (
       <div className="photo-card" key={post.imgLink}>
-        <img src={post.imgLink} alt={post.description} />
-        {post.description}
+        <div className="photo-card--image-container">
+          <img src={post.imgLink} alt={post.description} />
+        </div>
+        <div className="photo-card--description-container">
+          <p>
+            {post.description.length > 18
+              ? post.description.slice(0, 15).concat("...")
+              : post.description}
+          </p>
+        </div>
       </div>
     );
   }

@@ -11,31 +11,7 @@ import MainSplash from "./components/Main/MainSplash/MainSplash";
 import MaevePage from "./components/MaevePage/MaevePage";
 
 class App extends Component {
-  // state = {
-  //   input: "",
-  //   imageUrl: "",
-  //   isSignedIn: true,
-  //   user: {
-  //     email: "",
-  //     userId: "123",
-  //     name: "",
-  //     babyName: "",
-  //     posts: {},
-  //     joined: ""
-  //   }
-  // };
-
-  componentDidMount() {
-    // let isSignedIn;
-    // firebase.auth().currentUser ? (isSignedIn = true) : (isSignedIn = false);
-    // console.log(firebase.auth().currentUser, this.state);
-    // this.setState({ isSignedIn });
-    // Still need to make this update issignedin
-    // Also userId
-  }
-
   render() {
-    // const { isSignedIn } = this.state;
     return (
       <div>
         <BackgroundLayer />
@@ -43,7 +19,7 @@ class App extends Component {
           <NotFound default />
           <MainSplash path="/" />
           <UserMain path="/u/:userId" />
-          <MaevePage path="/u/maeve" />
+          <MaevePage path="/maeve" />
           <NewPost path="/u/:userId/newpost" />
           <Register path="/register" />
           <SignIn path="/signin" />
