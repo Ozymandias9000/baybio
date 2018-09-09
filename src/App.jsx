@@ -8,6 +8,7 @@ import NewPost from "./components/UserMain/NewPost/NewPost";
 import NotFound from "./components/NotFound/NotFound";
 import UserMain from "./components/UserMain/UserMain";
 import MainSplash from "./components/Main/MainSplash/MainSplash";
+import MaevePage from "./components/MaevePage/MaevePage";
 
 class App extends Component {
   // state = {
@@ -42,6 +43,7 @@ class App extends Component {
           <NotFound default />
           <MainSplash path="/" />
           <UserMain path="/u/:userId" />
+          <MaevePage path="/u/maeve" />
           <NewPost path="/u/:userId/newpost" />
           <Register path="/register" />
           <SignIn path="/signin" />

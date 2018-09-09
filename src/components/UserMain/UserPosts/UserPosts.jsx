@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { firebase } from "../../../config/firebase";
 import NoContent from "../NoContent";
 import Loading from "../../Loading/Loading";
+import Photo from "./Photo";
 
 export default class UserPosts extends Component {
   state = {
@@ -44,12 +45,7 @@ export default class UserPosts extends Component {
     ) : (
       <div className="grid-container--user-main">
         {posts.length > 0 &&
-          posts.map(post => (
-            <div className="photo-card" key={post.imgLink}>
-              <img src={post.imgLink} alt={post.description} />
-              {post.description}
-            </div>
-          ))}
+          posts.map(post => <Photo key={post.imgLink} post={post} />)}
       </div>
     );
   }
