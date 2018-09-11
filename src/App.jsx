@@ -1,14 +1,20 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
 import "./static/css/App.css";
+
+// Needed on Main Page
 import BackgroundLayer from "./components/Background/BackgroundLayer";
-import Register from "./components/Register/Register";
-import SignIn from "./components/SignIn/SignIn";
-import NewPost from "./components/UserMain/NewPost/NewPost";
-import NotFound from "./components/NotFound/NotFound";
-import UserMain from "./components/UserMain/UserMain";
 import MainSplash from "./components/Main/MainSplash/MainSplash";
-import MaevePage from "./components/MaevePage/MaevePage";
+
+// Using react-loadable to code-split
+import {
+  NotFound,
+  UserMain,
+  NewPost,
+  Register,
+  SignIn,
+  MaevePage
+} from "./AsyncComponents";
 
 class App extends Component {
   render() {
