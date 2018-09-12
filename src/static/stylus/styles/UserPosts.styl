@@ -1,3 +1,18 @@
+.grid-container--user-main
+  display grid
+  grid-template-columns: repeat(auto-fill, 30vw);
+  grid-auto-rows: 400px;
+  grid-auto-flow: dense;
+  width 90vw
+  height 90vh
+
+.round-button--post
+  position relative
+  top 75px
+  padding 10px
+  background var(--red)
+  color var(--white)
+
 .photo-card
   padding 0
   overflow hidden
@@ -23,6 +38,13 @@
     grid-column 1 / -1
     grid-row 2 / span 1
     background rgba(244,244,244,.8)
-  p
-    // border-left 1px solid var(--pink)
-    // border-right 1px solid var(--pink)
+
+@media only screen and (max-width: 600px)
+  .grid-container--user-main
+    grid-auto-flow: column
+    grid-auto-columns: 90%
+    grid-auto-rows: none
+    grid-gap 1rem
+    overflow-x: scroll
+    -webkit-overflow-scrolling: touch
+    padding: 3em 0em
