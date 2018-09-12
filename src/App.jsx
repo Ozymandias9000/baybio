@@ -22,7 +22,9 @@ class App extends Component {
     return (
       <div>
         <BackgroundLayer />
-        <button onClick={signOut}>Sign out</button>
+        <button className="sign-out" onClick={signOut}>
+          Sign out
+        </button>
         <Router>
           <NotFound default />
           <MainSplash path="/" />
