@@ -17,40 +17,6 @@
   align-items center
   text-align center
 
-/* Classes for splash banner text */
-.splash-banner-text
-  display grid
-  grid 2fr 1fr 2fr 2fr / 1fr
-  align-items center
-  justify-content center
-  transition all 0.2s
-  min-height 600px
-  max-height 60vh
-  width 80vw
-
-.splash-banner-text--h1,
-.splash-banner-text--ellipses,
-.splash-banner-text--h3
-  letter-spacing 3px
-  font-weight 300
-
-.splash-banner-text--h1
-  text-shadow: 1px 1px 2px rgba(0,0,0,.2)
-
-.splash-banner-text > input
-  margin 0 auto
-  width 75vw
-  background none
-  border none
-  border-bottom 1px solid black
-  padding-bottom 2px
-  text-align center
-  font-size 2em
-  font-family inherit
-  outline none
-  &:focus
-    outline none
-
 /* Classes for buttons */
 
 .round-button
@@ -80,10 +46,10 @@
 
 @keyframes move
   from
-    top 50px
+    bottom 50px
     opacity 0
   to
-    top 0
+    bottom 0
     opacity 1
 
 /* Error messages */
