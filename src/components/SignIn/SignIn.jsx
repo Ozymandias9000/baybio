@@ -1,16 +1,15 @@
 import { firebase } from "../../config/firebase";
 import React, { Component } from "react";
 import { navigate } from "@reach/router";
+import formatData from "../CustomFuncs/formatData";
 
 export default class SignIn extends Component {
-  formatData = d => d.trim();
-
   handleSubmit = async e => {
     e.preventDefault();
 
     const data = new FormData(e.target);
-    const email = this.formatData(data.get("email"));
-    const password = this.formatData(data.get("password"));
+    const email = formatData(data.get("email"));
+    const password = formatData(data.get("password"));
 
     await firebase
       .auth()
@@ -33,25 +32,27 @@ export default class SignIn extends Component {
 
   render() {
     return (
-      <div>
-        <form
-          className="flex-container--center"
-          id="signin-form"
-          name="signin-form"
-          onSubmit={this.handleSubmit}
-        >
-          <span ref="error" className="error-msg" />
-          <label htmlFor="email">Email</label>
-          <input type="email" name="email" id="email" required />
-          <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" required />
-          <input
-            type="submit"
-            value="Sign In"
-            className="round-button round-button--sign-in"
-          />
-        </form>
-      </div>
+      <main>
+        <div className="form-container">
+          <form
+            className="flex-container__space"
+            id="signin-form"
+            name="signin-form"
+            onSubmit={this.handleSubmit}
+          >
+            <span ref="error" className="error-msg" />
+            <label htmlFor="email">Email</label>
+            <input type="email" name="email" id="email" required />
+            <label htmlFor="password">Password</label>
+            <input type="password" name="password" id="password" required />
+            <input
+              type="submit"
+              value="Sign In"
+              className="round-button round-button--sign-in"
+            />
+          </form>
+        </div>
+      </main>
     );
   }
 }

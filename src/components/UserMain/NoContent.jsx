@@ -5,8 +5,7 @@ export default class NoContent extends Component {
     return (
       <Fragment>
         <h3 className="splash-banner-text--h3">
-          Nothing here! Either this user doesn't exist, or they haven't uploaded
-          any content!
+          Looks like there's no content here!
         </h3>
       </Fragment>
     );

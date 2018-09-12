@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
+import signOut from "./components/CustomFuncs/signOut";
 import "./static/css/App.css";
 
 // Needed on Main Page
@@ -21,6 +22,7 @@ class App extends Component {
     return (
       <div>
         <BackgroundLayer />
+        <button onClick={signOut}>Sign out</button>
         <Router>
           <NotFound default />
           <MainSplash path="/" />
