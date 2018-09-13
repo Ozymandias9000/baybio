@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "@reach/router";
 
 export default class Photo extends Component {
   render() {
@@ -6,7 +7,9 @@ export default class Photo extends Component {
     return (
       <div className="photo-card" key={post.imgLink}>
         <div className="photo-card--image-container">
-          <img src={post.imgLink} alt={post.description} />
+          <Link to={`${post.shortid}`}>
+            <img src={post.imgLink} alt={post.description} />
+          </Link>
         </div>
         <div className="photo-card--description-container">
           <p>

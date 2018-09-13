@@ -14,7 +14,8 @@ import {
   NewPost,
   Register,
   SignIn,
-  MaevePage
+  MaevePage,
+  Single
 } from "./AsyncComponents";
 
 class App extends Component {
@@ -29,6 +30,7 @@ class App extends Component {
           <NotFound default />
           <MainSplash path="/" />
           <UserMain path="/u/:userId" />
+          <Single path="/u/:userId/:shortid" />
           <MaevePage path="/maeve" />
           <NewPost path="/u/:userId/newpost" />
           <Register path="/register" />

@@ -15,7 +15,8 @@
     "react-loadable": "^5.5.0",
     "react-particles-js": "^2.3.0",
     "react-scripts": "1.1.5",
-    "react-transition-group": "^2.4.0"
+    "react-transition-group": "^2.4.0",
+    "shortid": "^2.2.13"
   },
   "scripts": {
     "build-css": "stylus -c src/static/stylus/ --out src/static/css",

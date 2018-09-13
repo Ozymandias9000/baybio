@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import moment from "moment-mini";
 import { firebase } from "../../../config/firebase.js";
 import { navigate, Redirect } from "@reach/router";
+import shortid from "shortid";
+
 import checkUser from "../../CustomFuncs/checkUser";
 import {
   cloudName,
@@ -13,7 +15,8 @@ export default class NewPost extends Component {
     description: "",
     isUser: false,
     cloudinaryUrl: "",
-    thumbnail_url: ""
+    thumbnail_url: "",
+    shortid: ""
   };
 
   componentWillMount() {
@@ -23,12 +26,26 @@ export default class NewPost extends Component {
   handleCloudinary = e => {
     e.preventDefault();
     window.cloudinary.openUploadWidget(
-      { cloud_name: `${cloudName}`, upload_preset: `${unsignedUploadPreset}` },
+      {
+        cloud_name: `${cloudName}`,
+        upload_preset: `${unsignedUploadPreset}`,
+        folder: "baybio",
+        theme: "white"
+      },
       (error, result) => {
-        this.setState({
-          cloudinaryUrl: result[0].url,
-          thumbnail_url: result[0].thumbnail_url
-        });
+        if (error) {
+          this.refs.error.textContent = "Hmmmm, that didn't work. Try again?";
+          return;
+        } else {
+          this.setState(
+            {
+              cloudinaryUrl: result[0].url,
+              thumbnail_url: result[0].thumbnail_url,
+              shortid: shortid.generate()
+            },
+            () => (this.refs.error.textContent = "Photo ready!")
+          );
+        }
       }
     );
   };
@@ -41,6 +58,7 @@ export default class NewPost extends Component {
     const data = new FormData(e.target);
     const imgLink = this.state.cloudinaryUrl;
     const thumbnailLink = this.state.thumbnail_url;
+    const { shortid } = this.state;
     const description = this.formatData(data.get("description"));
     const created = moment.now();
     const createdPretty = moment(created).format();
@@ -54,7 +72,9 @@ export default class NewPost extends Component {
           .set({
             imgLink,
             thumbnailLink,
-            description
+            description,
+            created,
+            shortid
           });
         navigate(`/u/${userId}`);
       } catch (err) {
@@ -88,11 +108,7 @@ export default class NewPost extends Component {
             </button>
 
             <label htmlFor="description">Description</label>
-            <textarea
-              name="description"
-              id="description"
-              placeholder="Optional"
-            />
+            <textarea name="description" id="description" required />
             <div>
               <input
                 type="submit"
