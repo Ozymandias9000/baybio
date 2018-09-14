@@ -37,7 +37,7 @@ export default class UserPosts extends Component {
 
   render() {
     const { posts, isContent, loading } = this.state;
-
+    const { userId } = this.props;
     if (loading) return <Loading />;
 
     return !isContent ? (
@@ -45,7 +45,9 @@ export default class UserPosts extends Component {
     ) : (
       <div className="grid-container--user-main">
         {posts.length > 0 &&
-          posts.map(post => <Photo key={post.imgLink} post={post} />)}
+          posts.map(post => (
+            <Photo key={post.imgLink} post={post} userId={userId} />
+          ))}
       </div>
     );
   }

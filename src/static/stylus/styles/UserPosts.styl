@@ -1,6 +1,7 @@
 .grid-container--user-main
   display grid
   grid-template-columns: repeat(auto-fill, 30vw);
+  margin 0 auto
   grid-auto-rows: 400px;
   grid-auto-flow: dense;
   width 90vw
@@ -12,32 +13,6 @@
   padding 10px
   background var(--red)
   color var(--white)
-
-.photo-card
-  padding 0
-  overflow hidden
-  display grid
-  grid-template-columns 1
-  grid-template-rows: 320px auto
-  justify-content center
-  align-items center
-  background rgba(240,240,240,.5)
-  div
-    display flex
-    justify-content center
-    align-items center
-  .photo-card--image-container
-    grid-column 1 / -1
-    grid-row 1 / span 1
-    img
-      width 100%
-      height 100%
-      object-fit cover
-  .photo-card--description-container
-    height 100%
-    grid-column 1 / -1
-    grid-row 2 / span 1
-    background rgba(244,244,244,.8)
 
 @media only screen and (max-width: 600px)
   .grid-container--user-main

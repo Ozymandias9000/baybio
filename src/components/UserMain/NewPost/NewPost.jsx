@@ -4,6 +4,7 @@ import { firebase } from "../../../config/firebase.js";
 import { navigate, Redirect } from "@reach/router";
 import shortid from "shortid";
 
+import formatData from "../../CustomFuncs/formatData";
 import checkUser from "../../CustomFuncs/checkUser";
 import {
   cloudName,
@@ -34,7 +35,7 @@ export default class NewPost extends Component {
       },
       (error, result) => {
         if (error) {
-          this.refs.error.textContent = "Hmmmm, that didn't work. Try again?";
+          this.refs.error.textContent = "Hmmmm, no photo here. Try again?";
           return;
         } else {
           this.setState(
@@ -50,16 +51,20 @@ export default class NewPost extends Component {
     );
   };
 
-  formatData = d => d.trim();
-
   handleSubmit = e => {
     e.preventDefault();
+
+    const imgLink = this.state.cloudinaryUrl;
+    if (imgLink === "") {
+      this.refs.error.textContent = "You must provide a picture!";
+      return;
+    }
+
     const userId = firebase.auth().currentUser.uid;
     const data = new FormData(e.target);
-    const imgLink = this.state.cloudinaryUrl;
     const thumbnailLink = this.state.thumbnail_url;
     const { shortid } = this.state;
-    const description = this.formatData(data.get("description"));
+    const description = formatData(data.get("description"));
     const created = moment.now();
     const createdPretty = moment(created).format();
 
