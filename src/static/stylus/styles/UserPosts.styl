@@ -2,24 +2,18 @@
   display grid
   grid-template-columns: repeat(auto-fill, 30vw);
   margin 0 auto
-  grid-auto-rows: 400px;
+  // grid-gap 10px
+  grid-auto-rows: 450px;
   grid-auto-flow: dense;
   width 90vw
-  height 90vh
-
-.round-button--post
-  position relative
-  top 75px
-  padding 10px
-  background var(--red)
-  color var(--white)
+  height 100vh
 
 @media only screen and (max-width: 600px)
   .grid-container--user-main
-    grid-auto-flow: column
-    grid-auto-columns: 90%
-    grid-auto-rows: none
+    grid-auto-flow column
+    grid-auto-columns 90%
+    grid-auto-rows none
     grid-gap 1rem
-    overflow-x: scroll
-    -webkit-overflow-scrolling: touch
+    overflow-x scroll
+    -webkit-overflow-scrolling touch
     padding: 3em 0em

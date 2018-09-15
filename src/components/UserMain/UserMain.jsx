@@ -21,9 +21,13 @@ export default class UserMain extends Component {
     const { isUser, userId } = this.state;
 
     return (
-      <main className="flex-container--center">
-        <UserPosts userId={userId} />
-        {isUser && <LinkNewPost />}
+      <main className="flex-container">
+        <div className="user-main--container">
+          <UserPosts userId={userId} />
+        </div>
+        <div className="user-main--container__button">
+          {isUser && <LinkNewPost />}
+        </div>
       </main>
     );
   }
