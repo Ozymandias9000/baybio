@@ -6,6 +6,7 @@ import shortid from "shortid";
 
 import formatData from "../../CustomFuncs/formatData";
 import checkUser from "../../CustomFuncs/checkUser";
+import makeHTTPS from "../../CustomFuncs/makeHTTPS";
 import {
   cloudName,
   unsignedUploadPreset
@@ -38,10 +39,13 @@ export default class NewPost extends Component {
           this.refs.error.textContent = "Hmmmm, no photo here. Try again?";
           return;
         } else {
+          const cloudinaryUrl = makeHTTPS(result[0].url);
+          const thumbnail_url = makeHTTPS(result[0].thumbnail_url);
+
           this.setState(
             {
-              cloudinaryUrl: result[0].url,
-              thumbnail_url: result[0].thumbnail_url,
+              cloudinaryUrl,
+              thumbnail_url,
               shortid: shortid.generate()
             },
             () => (this.refs.error.textContent = "Photo ready!")

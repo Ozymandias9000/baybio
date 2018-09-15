@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import { Router, navigate } from "@reach/router";
-import Single from "./Single";
+import { navigate } from "@reach/router";
 
 export default class Photo extends Component {
   handleClick = (post, shortid, userId) => {
@@ -9,7 +8,6 @@ export default class Photo extends Component {
 
   render() {
     const { post, userId } = this.props;
-
     const { shortid } = post;
     return (
       <div className="photo-card" key={post.imgLink}>
