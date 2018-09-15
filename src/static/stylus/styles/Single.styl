@@ -1,15 +1,20 @@
-.single-photo
-	max-width 900px
-	margin 0 auto
+.single-photo--container
 	display flex
-	background white
-	.grid-figure
-		box-shadow none
-		margin 0 2rem 0 0
-		border 0
-		padding 0
-		flex 1 0 60%
-		max-width 60%
-	.comments
-		flex 1 0 40%
-		max-width 40%
+	max-width 1000px
+	max-height 80vh
+	min-width 70vw
+	margin 0 auto
+	padding 1rem
+	border 4px solid #edeeed
+	div
+		position relative
+		display flex
+		flex 1
+		width 100%
+		img
+			width 100%
+			max-height 100%
+			margin 0
+			object-fit contain
+	.comments--container
+		flex-direction column
