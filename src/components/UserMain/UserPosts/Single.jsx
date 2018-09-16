@@ -4,8 +4,6 @@ import Photo from "./Photo";
 class Single extends Component {
   render() {
     const { post } = this.props.location.state;
-
-    console.log(post);
     return (
       <div className="flex-container--center">
         <div className="single-content--container">
