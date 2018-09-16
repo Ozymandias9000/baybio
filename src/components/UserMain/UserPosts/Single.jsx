@@ -8,16 +8,14 @@ class Single extends Component {
     console.log(post);
     return (
       <div className="flex-container--center">
-        <div className="single-photo--container">
-          <div>
+        <div className="single-content--container">
+          <div className="single-photo-and-caption--container">
             <img src={post.imgLink} alt={post.description} />
+            <p>{post.description}</p>
           </div>
-          <div className="comments--container">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat hic
-            blanditiis ullam, sequi deserunt nihil quod alias tempore inventore
-            veritatis nulla illum ea magni, enim magnam dolorum totam atque
-            temporibus?
-          </div>
+          {/*   <div className="comments--container">
+
+          </div> */}
         </div>
       </div>
     );

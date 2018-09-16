@@ -1,8 +1,9 @@
 .grid-container--user-main
   display grid
-  grid-template-columns: repeat(auto-fill, 30vw);
+  grid-template-columns: repeat(auto-fill, 28vw);
   margin 0 auto
-  // grid-gap 10px
+  grid-gap 1vw
+  justify-content center
   grid-auto-rows: 450px;
   grid-auto-flow: dense;
   width 90vw
@@ -10,10 +11,10 @@
 
 @media only screen and (max-width: 600px)
   .grid-container--user-main
-    grid-auto-flow column
-    grid-auto-columns 90%
-    grid-auto-rows none
-    grid-gap 1rem
-    overflow-x scroll
+    grid-auto-flow row
+    grid-template-columns repeat(auto-fill, 100vw)
+    width auto
+    overflow-x hidden
+    overflow-y scroll
     -webkit-overflow-scrolling touch
-    padding: 3em 0em
+    padding: 2em 0em
