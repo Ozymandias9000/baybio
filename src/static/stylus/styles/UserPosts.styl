@@ -1,7 +1,23 @@
+// Sign out, Sign In, Reg
+.auth-buttons--container
+  top 0
+  right 0
+  position fixed
+  button
+    background var(--pink)
+    color var(--white)
+    box-shadow none
+    border none
+    padding 5px
+    &:nth-of-type(2)
+      border-left 1px solid var(--white)
+
+
 .grid-container--user-main
   display grid
   grid-template-columns: repeat(auto-fill, 28vw);
   margin 0 auto
+  padding-top 2rem
   grid-gap 1vw
   justify-content center
   grid-auto-rows: 450px;
@@ -17,4 +33,3 @@
     overflow-x hidden
     overflow-y scroll
     -webkit-overflow-scrolling touch
-    padding: 2em 0em

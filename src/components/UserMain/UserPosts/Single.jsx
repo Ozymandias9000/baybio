@@ -1,23 +1,31 @@
 import React, { Component } from "react";
-import Photo from "./Photo";
+import Comments from "./Comments";
 
-class Single extends Component {
+export default class Single extends Component {
   render() {
     const { post } = this.props.location.state;
+    post.comments = [
+      { user: "Nick", text: "Nice!" },
+      { user: "Jim Bob", text: "Way to go!" },
+      { user: "Nick", text: "Nice!" },
+      { user: "Jim Bob", text: "Way to go!" },
+      { user: "Nick", text: "Nice!" },
+      { user: "Jim Bob", text: "Way to go!" },
+      { user: "Nick", text: "Nice!" },
+      { user: "Jim Bob", text: "Way to go!" }
+    ];
     return (
-      <div className="flex-container--center">
-        <div className="single-content--container">
-          <div className="single-photo-and-caption--container">
+      <div className="single-content--container">
+        <div className="single-photo-and-caption--container">
+          <figure>
             <img src={post.imgLink} alt={post.description} />
-            <p>{post.description}</p>
-          </div>
-          {/*   <div className="comments--container">
-
-          </div> */}
+            <figcaption>
+              <p>{post.description}</p>
+            </figcaption>
+          </figure>
         </div>
+        <Comments postComments={post.comments} />
       </div>
     );
   }
 }
-
-export default Single;
