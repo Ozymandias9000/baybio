@@ -34,7 +34,6 @@ export default class UserMain extends Component {
 
     return (
       <main className="flex-container">
-        {console.log(firebase.auth().currentUser)}
         {/*  {firebase.auth().currentUser !== null ? (
           <div className="auth-buttons--container">
             <button onClick={signOut}>Sign out</button>

@@ -4,16 +4,19 @@ import Comments from "./Comments";
 export default class Single extends Component {
   render() {
     const { post } = this.props.location.state;
-    post.comments = [
-      { user: "Nick", text: "Nice!" },
-      { user: "Jim Bob", text: "Way to go!" },
-      { user: "Nick", text: "Nice!" },
-      { user: "Jim Bob", text: "Way to go!" },
-      { user: "Nick", text: "Nice!" },
-      { user: "Jim Bob", text: "Way to go!" },
-      { user: "Nick", text: "Nice!" },
-      { user: "Jim Bob", text: "Way to go!" }
-    ];
+    // const comments = [
+    //   { user: "Nick", text: "Nice!" },
+    //   { user: "Jim Bob", text: "Way to go!" },
+    //   { user: "Nick", text: "Nice!" },
+    //   { user: "Jim Bob", text: "Way to go!" },
+    //   { user: "Nick", text: "Nice!" },
+    //   { user: "Jim Bob", text: "Way to go!" },
+    //   { user: "Nick", text: "Nice!" },
+    //   { user: "Jim Bob", text: "Way to go!" }
+    // ];
+    const { comments } = post;
+    const commentsArr = comments === undefined ? [] : Object.values(comments);
+
     return (
       <div className="single-content--container">
         <div className="single-photo-and-caption--container">
@@ -24,7 +27,11 @@ export default class Single extends Component {
             </figcaption>
           </figure>
         </div>
-        <Comments postComments={post.comments} />
+        <Comments
+          postComments={commentsArr}
+          {...this.props.location.state}
+          {...this.props}
+        />
       </div>
     );
   }
