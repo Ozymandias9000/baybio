@@ -5,7 +5,7 @@ export default class LinkNewPost extends Component {
   render() {
     return (
       <Fragment>
-        <Link to={`newpost`} className="round-button--post">
+        <Link to={`newpost`} className="new-post-link">
           New Post
         </Link>
       </Fragment>
