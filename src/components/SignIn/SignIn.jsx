@@ -45,11 +45,13 @@ export default class SignIn extends Component {
             <input type="email" name="email" id="email" required />
             <label htmlFor="password">Password</label>
             <input type="password" name="password" id="password" required />
-            <input
-              type="submit"
-              value="Sign In"
-              className="round-button round-button--sign-in"
-            />
+            <div>
+              <input
+                type="submit"
+                value="Sign In"
+                className="round-button round-button--sign-in"
+              />
+            </div>
           </form>
         </div>
       </main>

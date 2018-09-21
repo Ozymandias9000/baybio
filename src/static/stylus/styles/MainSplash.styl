@@ -5,8 +5,9 @@
   align-items center
   justify-content center
   transition all 0.2s
-  min-height 600px
+  min-height 500px
   max-height 60vh
+  overflow none
   width 80vw
 
 .splash-banner-text--h1,
@@ -32,18 +33,19 @@
   &:focus
     outline none
 
-
 /* Classes for splash buttons & container*/
 
 .splash-button--container
-  padding 50px
+  padding 30px
   grid-row 3 / span 1
   display grid
   grid 1fr 1fr / 1fr
-  grid-gap 50px
+  grid-gap 30px
   justify-items center
   align-items center
   & .round-button--splash
+    width 120px
+    height 120px
     grid-column 1 /-1
     color var(--white)
     &:nth-of-type(1)
@@ -54,6 +56,11 @@
 /* ------------- Non-mobile --------------- */
 @media only screen and (min-width:600px)
  .splash-button--container
+    padding 50px
+    grid-gap 50px
     display flex
     justify-content space-between
     align-items center
+      .round-button--splash
+        height 150px
+        width 150px

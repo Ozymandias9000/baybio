@@ -1,0 +1,67 @@
+.single-content--container
+	max-width 900px
+	display flex
+	margin 2rem auto
+	flex-basis calc(33.333% - 4rem)
+	flex-grow 1
+	flex-shrink 0
+	padding 2rem
+	border 1px solid lightgray
+	background white
+	box-shadow 0 0 0 5px rgba(0,0,0,0.03);
+	position relative
+	p
+		font-size .65rem
+		margin 0
+	.single-photo-and-caption--container
+		box-shadow none
+		margin 0 2rem 0 0
+		border 0
+		padding 0
+		flex 1 0 60%
+		max-width 60%
+		figure
+			margin 0
+		img
+			width 100%
+			margin 0
+
+.comments-container
+	flex 1 0 40%
+	max-width 40%
+	.remove-comment
+		position relative
+		top 5px
+		border 2px solid lighten(grey, 90%)
+		background none
+		flex-basis 48%
+		display inline-block
+		text-decoration none
+		text-align center
+		font-size 25px
+		color var(--blue)
+		transition all 0.2s
+		border 0
+		opacity 0
+		&:hover, &:focus
+			border-color var(--blue)
+			outline 0
+			color red
+	.comment
+		border-bottom 1px solid lightgrey
+		strong
+			color blue
+			margin-right 10px
+		&:hover
+			.remove-comment
+				opacity 1
+
+	.comment-form
+		input, textarea
+			width 100%
+			border 0
+			font-size .65rem
+			padding .5rem 0
+			border-bottom 1px solid lightgrey
+			outline none
+			resize vertical

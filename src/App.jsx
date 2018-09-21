@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Router } from "@reach/router";
-import signOut from "./components/CustomFuncs/signOut";
 import "./static/css/App.css";
 
 // Needed on Main Page
@@ -14,7 +13,8 @@ import {
   NewPost,
   Register,
   SignIn,
-  MaevePage
+  MaevePage,
+  Single
 } from "./AsyncComponents";
 
 class App extends Component {
@@ -22,13 +22,11 @@ class App extends Component {
     return (
       <div>
         <BackgroundLayer />
-        <button className="sign-out" onClick={signOut}>
-          Sign out
-        </button>
         <Router>
           <NotFound default />
           <MainSplash path="/" />
           <UserMain path="/u/:userId" />
+          <Single path="/u/:userId/:shortid" />
           <MaevePage path="/maeve" />
           <NewPost path="/u/:userId/newpost" />
           <Register path="/register" />

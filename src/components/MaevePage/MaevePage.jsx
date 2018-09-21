@@ -4,7 +4,7 @@ import { Redirect } from "@reach/router";
 export default class MaevePage extends Component {
   render() {
     return (
-      <Redirect from="/maeve" to="/u/1u4zqEOhDHfYR7KnMVzadv52C7e2" noThrow />
+      <Redirect from="/maeve" to="/u/rWgWpZOEhaY1P3vVUgu86QMReoz2" noThrow />
     );
   }
 }

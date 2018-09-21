@@ -1,12 +1,22 @@
 import React, { Component } from "react";
+import { navigate } from "@reach/router";
 
 export default class Photo extends Component {
+  handleClick = (post, shortid, userId) => {
+    navigate(`/u/${userId}/${shortid}`, { state: { post } });
+  };
+
   render() {
-    const { post } = this.props;
+    const { post, userId } = this.props;
+    const { shortid } = post;
     return (
       <div className="photo-card" key={post.imgLink}>
         <div className="photo-card--image-container">
-          <img src={post.imgLink} alt={post.description} />
+          <img
+            src={post.imgLink}
+            alt={post.description}
+            onClick={() => this.handleClick(post, shortid, userId)}
+          />
         </div>
         <div className="photo-card--description-container">
           <p>

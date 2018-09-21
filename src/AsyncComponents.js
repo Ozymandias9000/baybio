@@ -48,3 +48,8 @@ export const MaevePage = Loadable({
   loader: () => import("./components/MaevePage/MaevePage"),
   loading: Load
 });
+
+export const Single = Loadable({
+  loader: () => import("./components/UserMain/UserPosts/Single.jsx"),
+  loading: Load
+});

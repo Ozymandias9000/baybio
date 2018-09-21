@@ -2,14 +2,9 @@ import React, { Component } from "react";
 import formatData from "../CustomFuncs/formatData";
 import { firebase } from "../../config/firebase";
 import { navigate } from "@reach/router";
-// import textAppear from "../CustomFuncs/textAppear";
-// import Reg1 from "./RegisterSteps/Reg1";
 
 export default class Register extends Component {
-  /* TODO:
-    - Implement multi-component registration flow using Amazon Cognito (https://hackernoon.com/react-authentication-in-depth-4deebda9aa45) & (https://medium.com/@l_e/writing-a-wizard-in-react-8dafbce6db07)
-    - Add TransitionGroup page transitions
-  */
+  // ! Buttons getting squashed vertically - add container
 
   checkPasswords = (password, passwordConfirm) =>
     password === passwordConfirm ? true : false;
@@ -35,6 +30,7 @@ export default class Register extends Component {
       .createUserWithEmailAndPassword(email, password)
       .catch(function(error) {
         // Handle Errors here.
+        // Inform if email taken.
         var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorCode, errorMessage);
@@ -71,11 +67,13 @@ export default class Register extends Component {
               id="password-confirm"
               required
             />
-            <input
-              type="submit"
-              value="Register"
-              className="round-button round-button--register"
-            />
+            <div>
+              <input
+                type="submit"
+                value="Register"
+                className="round-button round-button--register"
+              />
+            </div>
           </form>
         </div>
       </main>
