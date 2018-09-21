@@ -67,11 +67,13 @@ export default class Register extends Component {
               id="password-confirm"
               required
             />
-            <input
-              type="submit"
-              value="Register"
-              className="round-button round-button--register"
-            />
+            <div>
+              <input
+                type="submit"
+                value="Register"
+                className="round-button round-button--register"
+              />
+            </div>
           </form>
         </div>
       </main>
