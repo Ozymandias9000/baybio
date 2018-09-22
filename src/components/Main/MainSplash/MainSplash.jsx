@@ -5,7 +5,6 @@ import textAppear from "../../CustomFuncs/textAppear";
 export default class MainSplash extends Component {
   // ! DO NOT SHOW SIGN IN IF SIGNED IN
   // Accepting any creds and taking to user post right now
-  // & maxwidth on mainsplash container
   componentDidMount() {
     const h1Text = "Baybio";
     const h3Text = "A baby's story";
