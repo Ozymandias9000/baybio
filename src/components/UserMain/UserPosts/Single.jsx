@@ -1,19 +1,10 @@
 import React, { Component } from "react";
 import Comments from "./Comments";
+import ModalImage from "react-modal-image";
 
 export default class Single extends Component {
   render() {
     const { post } = this.props.location.state;
-    // const comments = [
-    //   { user: "Nick", text: "Nice!" },
-    //   { user: "Jim Bob", text: "Way to go!" },
-    //   { user: "Nick", text: "Nice!" },
-    //   { user: "Jim Bob", text: "Way to go!" },
-    //   { user: "Nick", text: "Nice!" },
-    //   { user: "Jim Bob", text: "Way to go!" },
-    //   { user: "Nick", text: "Nice!" },
-    //   { user: "Jim Bob", text: "Way to go!" }
-    // ];
     const { comments } = post;
     const commentsArr = comments === undefined ? [] : Object.values(comments);
 
@@ -21,7 +12,11 @@ export default class Single extends Component {
       <div className="single-content--container">
         <div className="single-photo-and-caption--container">
           <figure>
-            <img src={post.imgLink} alt={post.description} />
+            <ModalImage
+              small={post.imgLink}
+              large={post.imgLink}
+              alt={post.description}
+            />
             <figcaption>
               <p>{post.description}</p>
             </figcaption>

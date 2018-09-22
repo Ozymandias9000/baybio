@@ -5766,6 +5766,10 @@ react-loadable@^5.5.0:
   dependencies:
     prop-types "^15.5.0"
 
+react-modal-image@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/react-modal-image/-/react-modal-image-2.2.0.tgz#8687e3c3f65f801528a1fd1eed00491314b7ec7f"
+
 react-particles-js@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/react-particles-js/-/react-particles-js-2.3.0.tgz#2670181eff14f97479b4ae75601f51d9d6c082d7"
