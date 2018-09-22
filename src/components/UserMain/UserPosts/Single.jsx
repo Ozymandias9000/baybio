@@ -9,24 +9,26 @@ export default class Single extends Component {
     const commentsArr = comments === undefined ? [] : Object.values(comments);
 
     return (
-      <div className="single-content--container">
-        <div className="single-photo-and-caption--container">
-          <figure>
-            <ModalImage
-              small={post.imgLink}
-              large={post.imgLink}
-              alt={post.description}
-            />
-            <figcaption>
-              <p>{post.description}</p>
-            </figcaption>
-          </figure>
+      <div className="single-content--parent-container">
+        <div className="single-content--container">
+          <div className="single-photo-and-caption--container">
+            <figure>
+              <ModalImage
+                small={post.imgLink}
+                large={post.imgLink}
+                alt={post.description}
+              />
+              <figcaption>
+                <p>{post.description}</p>
+              </figcaption>
+            </figure>
+          </div>
+          <Comments
+            postComments={commentsArr}
+            {...this.props.location.state}
+            {...this.props}
+          />
         </div>
-        <Comments
-          postComments={commentsArr}
-          {...this.props.location.state}
-          {...this.props}
-        />
       </div>
     );
   }
