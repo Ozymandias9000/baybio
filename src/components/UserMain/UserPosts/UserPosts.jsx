@@ -26,6 +26,7 @@ export default class UserPosts extends Component {
     for (let post in p) {
       posts.push(p[post]);
     }
+    posts.reverse();
     posts.length === 0
       ? this.setState({ isContent: false, loading: false })
       : this.setState({ isContent: true, loading: false, posts });

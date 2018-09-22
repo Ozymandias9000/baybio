@@ -4,8 +4,6 @@ import { firebase } from "../../config/firebase";
 import { navigate } from "@reach/router";
 
 export default class Register extends Component {
-  // ! Buttons getting squashed vertically - add container
-
   checkPasswords = (password, passwordConfirm) =>
     password === passwordConfirm ? true : false;
 

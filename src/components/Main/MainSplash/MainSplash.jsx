@@ -32,6 +32,11 @@ export default class MainSplash extends Component {
               Sign In
             </Link>
           </div>
+          <span>
+            <Link to="/u/1u4zqEOhDHfYR7KnMVzadv52C7e2" className="demo-link">
+              Demo Page
+            </Link>
+          </span>
         </div>
       </main>
     );
