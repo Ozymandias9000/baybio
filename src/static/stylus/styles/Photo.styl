@@ -6,6 +6,10 @@
   justify-content center
   align-items center
   background rgba(240,240,240,.5)
+  transition all .3s
+  &:hover
+    transform scale(1.02)
+    box-shadow: 0 1px 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   div
     display flex
     justify-content center
@@ -19,6 +23,7 @@
       width 100%
       height 100%
       object-fit cover
+
   .photo-card--description-container
     padding 10px
     height 130px

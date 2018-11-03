@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { firebase } from "../../config/firebase";
-import { navigate } from "@reach/router";
+import { navigate, Link } from "@reach/router";
+
 import UserPosts from "./UserPosts/UserPosts";
 import checkUser from "../CustomFuncs/checkUser";
 import signOut from "../CustomFuncs/signOut";
-import LinkNewPost from "./LinkNewPost";
 
 export default class UserMain extends Component {
   state = {
@@ -36,6 +36,9 @@ export default class UserMain extends Component {
       <main className="flex-container">
         {isUser ? (
           <div className="auth-buttons--container">
+            <button className="new-post-link">
+              <Link to={"newpost"}>New Post</Link>
+            </button>
             <button onClick={signOut}>Sign out</button>
           </div>
         ) : (
@@ -46,9 +49,6 @@ export default class UserMain extends Component {
         )}
         <div className="user-main--container">
           <UserPosts userId={userId} />
-        </div>
-        <div className="user-main--container__button">
-          {isUser && <LinkNewPost />}
         </div>
       </main>
     );
