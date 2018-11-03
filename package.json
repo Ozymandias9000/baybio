@@ -18,7 +18,8 @@
     "react-particles-js": "^2.3.0",
     "react-scripts": "1.1.5",
     "react-transition-group": "^2.4.0",
-    "shortid": "^2.2.13"
+    "shortid": "^2.2.13",
+    "stylus": "^0.54.5"
   },
   "scripts": {
     "build-css": "stylus -c ./src/static/stylus/ --out ./src/static/css",
